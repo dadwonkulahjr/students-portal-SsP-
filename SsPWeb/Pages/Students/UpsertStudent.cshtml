@@ -1,0 +1,128 @@
+﻿@page
+@model SsPWeb.Pages.Students.UpsertStudentModel
+@{
+    if (Model.StudentViewModel.Student.Id == 0)
+    {
+        ViewData["Title"] = "Create new student";
+    }
+    else
+    {
+        ViewData["Title"] = "Edit student";
+    }
+}
+
+@if (Model.StudentViewModel.Student.Id == 0)
+{
+    <h2>
+        Create new student&nbsp;<i class="bi bi-pencil-square"></i>
+    </h2>
+}
+else
+{
+    <h2>
+        Edit student&nbsp;<i class="bi bi-pencil"></i>
+    </h2>
+}
+<hr />
+<form method="post">
+    @if (Model.StudentViewModel.Student.Id != 0)
+    {
+        <input hidden="hidden" asp-for="StudentViewModel.Student.Id" />
+    }
+    @*@if (Model.StudentViewModel.Student.Record.RecordId != 0)
+        {
+            <input hidden="hidden"  asp-for="StudentViewModel.Student.Record.RecordId" />
+        }*@
+    <div class="border shadow p-5">
+        <div class="row">
+            <div class="col-3">
+                <label asp-for="StudentViewModel.Student.Name" class="col-form-label"></label>
+            </div>
+            <div class="col-9 mb-1">
+                <input asp-for="StudentViewModel.Student.Name" class="form-control" placeholder="Student Name..." />
+                <span asp-validation-for="StudentViewModel.Student.Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label asp-for="StudentViewModel.Student.Record.Address" class="col-form-label"></label>
+            </div>
+            <div class="col-9 mb-1">
+                <input asp-for="StudentViewModel.Student.Record.Address" class="form-control" placeholder="Student Address..." />
+                <span asp-validation-for="StudentViewModel.Student.Record.Address" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label asp-for="StudentViewModel.Student.Record.Dob" class="col-form-label"></label>
+            </div>
+            <div class="col-9 mb-1">
+                <input asp-for="StudentViewModel.Student.Record.Dob" type="date" class="form-control" />
+                <span asp-validation-for="StudentViewModel.Student.Record.Dob" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                <label asp-for="StudentViewModel.Student.Record.LonestarNumber" class="col-form-label"></label>
+            </div>
+            <div class="col-9 mb-1">
+                <input asp-for="StudentViewModel.Student.Record.LonestarNumber" class="form-control" placeholder="Lonestar Contact..." />
+                <span asp-validation-for="StudentViewModel.Student.Record.LonestarNumber" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                <label asp-for="StudentViewModel.Student.Record.OrangeNumber" class="col-form-label"></label>
+            </div>
+            <div class="col-9 mb-1">
+                <input asp-for="StudentViewModel.Student.Record.OrangeNumber" class="form-control" placeholder="Orange Contact..." />
+                <span asp-validation-for="StudentViewModel.Student.Record.OrangeNumber" class="text-danger"></span>
+
+            </div>
+        </div>
+
+        <div class="row justify-content-end">
+            <div class="col-3">
+                <label asp-for="StudentViewModel.Student.Record.WhatAppNumber" class="col-form-label"></label>
+            </div>
+            <div class="col-9 mb-1">
+                <input asp-for="StudentViewModel.Student.Record.WhatAppNumber" class="form-control" placeholder="WhatApp Contact..." />
+                <span asp-validation-for="StudentViewModel.Student.Record.WhatAppNumber" class="text-danger"></span>
+
+            </div>
+        </div>
+        <div class="row mt-3 justify-content-end ">
+            <div class="col-4">
+                @if (Model.StudentViewModel.Student.Id == 0)
+                {
+                    <button class="btn btn-primary form-control mb-1">
+                        Create&nbsp;<i class="bi bi-pencil-square"></i>
+                    </button>
+
+                }
+                else
+                {
+                    <button class="btn btn-primary form-control mb-1">
+                        Update&nbsp;<i class="bi bi-pencil"></i>
+                    </button>
+
+                }
+
+            </div>
+            <div class="col-5">
+                <a class="btn btn-success form-control" asp-page="list">
+                    Back to List&nbsp;<i class="bi bi-card-list"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+
+}
