@@ -36,60 +36,60 @@ else
     <div class="border shadow p-5">
         <div class="row">
             <div class="col-3">
-                <label asp-for="StudentViewModel.Student.Name" class="col-form-label"></label>
+                <label asp-for="StudentViewModel.Student.FirstName" class="col-form-label"></label>
             </div>
             <div class="col-9 mb-1">
-                <input asp-for="StudentViewModel.Student.Name" class="form-control" placeholder="Student Name..." />
-                <span asp-validation-for="StudentViewModel.Student.Name" class="text-danger"></span>
+                <input asp-for="StudentViewModel.Student.FirstName" class="form-control" placeholder="First name..." />
+                <span asp-validation-for="StudentViewModel.Student.FirstName" class="text-danger"></span>
             </div>
         </div>
         <div class="row">
             <div class="col-3">
-                <label asp-for="StudentViewModel.Student.Record.Address" class="col-form-label"></label>
+                <label asp-for="StudentViewModel.Student.StudentDetails.Address" class="col-form-label"></label>
             </div>
             <div class="col-9 mb-1">
-                <input asp-for="StudentViewModel.Student.Record.Address" class="form-control" placeholder="Student Address..." />
-                <span asp-validation-for="StudentViewModel.Student.Record.Address" class="text-danger"></span>
+                <input asp-for="StudentViewModel.Student.StudentDetails.Address" class="form-control" placeholder="Student Address..." />
+                <span asp-validation-for="StudentViewModel.Student.StudentDetails.Address" class="text-danger"></span>
             </div>
         </div>
         <div class="row">
             <div class="col-3">
-                <label asp-for="StudentViewModel.Student.Record.Dob" class="col-form-label"></label>
+                <label asp-for="StudentViewModel.Student.StudentDetails.Dob" class="col-form-label"></label>
             </div>
             <div class="col-9 mb-1">
-                <input asp-for="StudentViewModel.Student.Record.Dob" type="date" class="form-control" />
-                <span asp-validation-for="StudentViewModel.Student.Record.Dob" class="text-danger"></span>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-3">
-                <label asp-for="StudentViewModel.Student.Record.LonestarNumber" class="col-form-label"></label>
-            </div>
-            <div class="col-9 mb-1">
-                <input asp-for="StudentViewModel.Student.Record.LonestarNumber" class="form-control" placeholder="Lonestar Contact..." />
-                <span asp-validation-for="StudentViewModel.Student.Record.LonestarNumber" class="text-danger"></span>
+                <input asp-for="StudentViewModel.Student.StudentDetails.Dob" type="date" class="form-control" />
+                <span asp-validation-for="StudentViewModel.Student.StudentDetails.Dob" class="text-danger"></span>
             </div>
         </div>
 
         <div class="row">
             <div class="col-3">
-                <label asp-for="StudentViewModel.Student.Record.OrangeNumber" class="col-form-label"></label>
+                <label asp-for="StudentViewModel.Student.StudentDetails.LonestarNumber" class="col-form-label"></label>
             </div>
             <div class="col-9 mb-1">
-                <input asp-for="StudentViewModel.Student.Record.OrangeNumber" class="form-control" placeholder="Orange Contact..." />
-                <span asp-validation-for="StudentViewModel.Student.Record.OrangeNumber" class="text-danger"></span>
+                <input asp-for="StudentViewModel.Student.StudentDetails.LonestarNumber" class="form-control" placeholder="Lonestar Contact..." />
+                <span asp-validation-for="StudentViewModel.Student.StudentDetails.LonestarNumber" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                <label asp-for="StudentViewModel.Student.StudentDetails.OrangeNumber" class="col-form-label"></label>
+            </div>
+            <div class="col-9 mb-1">
+                <input asp-for="StudentViewModel.Student.StudentDetails.OrangeNumber" class="form-control" placeholder="Orange Contact..." />
+                <span asp-validation-for="StudentViewModel.Student.StudentDetails.OrangeNumber" class="text-danger"></span>
 
             </div>
         </div>
 
         <div class="row justify-content-end">
             <div class="col-3">
-                <label asp-for="StudentViewModel.Student.Record.WhatAppNumber" class="col-form-label"></label>
+                <label asp-for="StudentViewModel.Student.StudentDetails.WhatAppNumber" class="col-form-label"></label>
             </div>
             <div class="col-9 mb-1">
-                <input asp-for="StudentViewModel.Student.Record.WhatAppNumber" class="form-control" placeholder="WhatApp Contact..." />
-                <span asp-validation-for="StudentViewModel.Student.Record.WhatAppNumber" class="text-danger"></span>
+                <input asp-for="StudentViewModel.Student.StudentDetails.WhatAppNumber" class="form-control" placeholder="WhatApp Contact..." />
+                <span asp-validation-for="StudentViewModel.Student.StudentDetails.WhatAppNumber" class="text-danger"></span>
 
             </div>
         </div>

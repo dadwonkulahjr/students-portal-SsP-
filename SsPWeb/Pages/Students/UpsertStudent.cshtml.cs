@@ -33,7 +33,7 @@ namespace SsPWeb.Pages.Students
             {
 
                 StudentViewModel.Student = _context.Students
-                      .Include(x => x.Record)
+                      .Include(x => x.StudentDetails)
                       .FirstOrDefault(x => x.Id == id);
 
                 return Page();
@@ -54,23 +54,23 @@ namespace SsPWeb.Pages.Students
 
                 Student student = new()
                 {
-                    Name = StudentViewModel.Student.Name
+                    FirstName = StudentViewModel.Student.FirstName
                 };
                 await _context.Students.AddAsync(student);
                 await _context.SaveChangesAsync();
                 int id = student.Id;
 
-                Record record = new()
+                StudentDetails record = new()
                 {
-                    RecordId = id,
-                    Address = StudentViewModel.Student.Record.Address,
-                    Dob = StudentViewModel.Student.Record.Dob,
-                    OrangeNumber = StudentViewModel.Student.Record.OrangeNumber,
-                    LonestarNumber = StudentViewModel.Student.Record.LonestarNumber,
-                    WhatAppNumber = StudentViewModel.Student.Record.WhatAppNumber
+                    StudentDetailsId = id,
+                    Address = StudentViewModel.Student.StudentDetails.Address,
+                    Dob = StudentViewModel.Student.StudentDetails.Dob,
+                    OrangeNumber = StudentViewModel.Student.StudentDetails.OrangeNumber,
+                    LonestarNumber = StudentViewModel.Student.StudentDetails.LonestarNumber,
+                    WhatAppNumber = StudentViewModel.Student.StudentDetails.WhatAppNumber
                 };
 
-                await _context.Records.AddAsync(record);
+                await _context.StudentDetails.AddAsync(record);
                 await _context.SaveChangesAsync();
                 TempData["success"] = "Student add successfully!";
                 return RedirectToPage("list");
@@ -78,7 +78,7 @@ namespace SsPWeb.Pages.Students
             else
             {
                 var student = await _context.Students
-                      .Include(x => x.Record)
+                      .Include(x => x.StudentDetails)
                         .FirstOrDefaultAsync(x => x.Id == StudentViewModel.Student.Id);
 
                 if (student is null)
@@ -86,34 +86,34 @@ namespace SsPWeb.Pages.Students
                     return NotFound();
                 }
 
-                student.Name = StudentViewModel.Student.Name;
+                student.FirstName = StudentViewModel.Student.FirstName;
                 int studentId = student.Id;
                 _context.Students.Update(student);
                 await _context.SaveChangesAsync();
 
-                Record record = new();
-                if (student.Record == null)
+                StudentDetails record = new();
+                if (student.StudentDetails == null)
                 {
-                    record.RecordId = studentId;
-                    record.Address = StudentViewModel.Student.Record.Address;
-                    record.Dob = StudentViewModel.Student.Record.Dob;
-                    record.LonestarNumber = StudentViewModel.Student.Record.LonestarNumber;
-                    record.OrangeNumber = StudentViewModel.Student.Record.OrangeNumber;
-                    record.WhatAppNumber = StudentViewModel.Student.Record.WhatAppNumber;
-                    _context.Records.Add(record);
+                    record.StudentDetailsId = studentId;
+                    record.Address = StudentViewModel.Student.StudentDetails.Address;
+                    record.Dob = StudentViewModel.Student.StudentDetails.Dob;
+                    record.LonestarNumber = StudentViewModel.Student.StudentDetails.LonestarNumber;
+                    record.OrangeNumber = StudentViewModel.Student.StudentDetails.OrangeNumber;
+                    record.WhatAppNumber = StudentViewModel.Student.StudentDetails.WhatAppNumber;
+                    _context.StudentDetails.Add(record);
                     await _context.SaveChangesAsync();
                 }
                 else
                 {
-                    record = await _context.Records.FirstOrDefaultAsync(x => x.RecordId == studentId);
-                    record.RecordId = studentId;
-                    record.Address = StudentViewModel.Student.Record.Address;
-                    record.Dob = StudentViewModel.Student.Record.Dob;
-                    record.LonestarNumber = StudentViewModel.Student.Record.LonestarNumber;
-                    record.OrangeNumber = StudentViewModel.Student.Record.OrangeNumber;
-                    record.WhatAppNumber = StudentViewModel.Student.Record.WhatAppNumber;
+                    record = await _context.StudentDetails.FirstOrDefaultAsync(x => x.StudentDetailsId == studentId);
+                    record.StudentDetailsId = studentId;
+                    record.Address = StudentViewModel.Student.StudentDetails.Address;
+                    record.Dob = StudentViewModel.Student.StudentDetails.Dob;
+                    record.LonestarNumber = StudentViewModel.Student.StudentDetails.LonestarNumber;
+                    record.OrangeNumber = StudentViewModel.Student.StudentDetails.OrangeNumber;
+                    record.WhatAppNumber = StudentViewModel.Student.StudentDetails.WhatAppNumber;
 
-                    _context.Records.Update(record);
+                    _context.StudentDetails.Update(record);
                     await _context.SaveChangesAsync();
 
                 }

@@ -30,26 +30,26 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.Students.OrderBy(x => x.Name))
+                @foreach (var item in Model.Students.OrderBy(x => x.FirstName))
                 {
                     <tr>
                         <td>
-                            @item.Name
+                            @item.FirstName
                         </td>
                         <td>
-                            @(item.Record == null ? "No address assigned." : item.Record.Address)
+                            @(item.StudentDetails == null ? "No address assigned." : item.StudentDetails.Address)
                         </td>
                         <td>
-                            @(item.Record == null ? "No Lonestar # assigned." : item.Record.LonestarNumber)
+                            @(item.StudentDetails == null ? "No Lonestar # assigned." : item.StudentDetails.LonestarNumber)
                         </td>
                         <td>
-                            @(item.Record == null ? "No Orange # assigned." : item.Record.OrangeNumber)
+                            @(item.StudentDetails == null ? "No Orange # assigned." : item.StudentDetails.OrangeNumber)
                         </td>
                         <td>
-                            @(item.Record == null ? "No WhatApp # assigned." : item.Record.WhatAppNumber)
+                            @(item.StudentDetails == null ? "No WhatApp # assigned." : item.StudentDetails.WhatAppNumber)
                         </td>
                         <td>
-                            @(item.Record == null ? "No WhatApp # assigned." : item.Record.Dob.Value.ToShortDateString())
+                            @(item.StudentDetails == null ? "No WhatApp # assigned." : item.StudentDetails.Dob.Value.ToShortDateString())
                         </td>
                         <td>
                             <a class="btn btn-success text-white mb-1" style="width:80px;" asp-page="upsertStudent" asp-route-id="@item.Id">

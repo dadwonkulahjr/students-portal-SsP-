@@ -20,7 +20,7 @@ namespace SsPWeb.Pages.Students
         public async Task OnGet()
         {
             Students = await _context.Students
-                           .Include(x => x.Record)
+                           .Include(x => x.StudentDetails)
                            .ToListAsync();
                            
 

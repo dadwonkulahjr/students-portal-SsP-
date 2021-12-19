@@ -21,7 +21,7 @@ namespace SsPWeb.Pages.Students
         public async Task<IActionResult> OnPostDeleteStudent(int id)
         {
             var studentToRemove = await _context.Students
-                                            .Include(x => x.Record)
+                                            .Include(x => x.StudentDetails)
                                             .FirstOrDefaultAsync(x => x.Id == id);
 
             if (studentToRemove is null) { return NotFound(); }
