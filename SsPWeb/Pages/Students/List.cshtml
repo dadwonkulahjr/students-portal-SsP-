@@ -1,0 +1,69 @@
+﻿@page
+@model SsPWeb.Pages.Students.ListModel
+@{
+    ViewData["Title"] = "List of students";
+}
+
+<h2>
+    Students Record
+</h2>
+<div class="row  justify-content-end">
+    <a class="btn btn-success text-white" href="#">
+        Create new student
+    </a>
+</div>
+<hr />
+@if (Model.Students.Any())
+{
+    <div class="border shadow table-responsive" style="padding:15px;">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Lonestar Number</th>
+                    <th>Orange Number</th>
+                    <th>WhatApp Number</th>
+                    <th>Dob</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Students.OrderBy(x => x.Name))
+                {
+                    <tr>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            @(item.Record == null ? "No address assigned." : item.Record.Address)
+                        </td>
+                        <td>
+                            @(item.Record == null ? "No Lonestar # assigned." : item.Record.LonestarNumber)
+                        </td>
+                        <td>
+                            @(item.Record == null ? "No Orange # assigned." : item.Record.OrangeNumber)
+                        </td>
+                        <td>
+                            @(item.Record == null ? "No WhatApp # assigned." : item.Record.WhatAppNumber)
+                        </td>
+                        <td>
+                            @(item.Record == null ? "No WhatApp # assigned." : item.Record.Dob.Value.ToShortDateString())
+                        </td>
+                        <td>
+                            <a class="btn btn-success text-white mb-1" style="width:80px;" asp-page="upsertStudent" asp-route-id="@item.Id">Edit</a>
+                            <a class="btn btn-danger text-white mb-1" style="width:80px;" asp-page="deleteStudent" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+}
+else
+{
+    <text>No record has been added.</text>
+}
+
