@@ -10,11 +10,11 @@ namespace SsPWeb.Models
         public int RecordId { get; set; }
         [Required, StringLength(50)]
         public string Address { get; set; }
-        [StringLength(25)]
+        [StringLength(25), Display(Name ="Lonestar Contact")]
         public string LonestarNumber { get; set; }
-        [StringLength(25)]
+        [StringLength(25), Display(Name = "Orange Contact")]
         public string OrangeNumber { get; set; }
-        [Required, StringLength(25)]
+        [Required, StringLength(25), Display(Name = "WhatApp Contact")]
         public string WhatAppNumber { get; set; }
         [Column(TypeName ="date"), Required]
         public DateTime? Dob { get; set; }

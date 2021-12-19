@@ -8,14 +8,14 @@
     Students Record
 </h2>
 <div class="row  justify-content-end">
-    <a class="btn btn-success text-white" href="#">
-        Create new student
+    <a class="btn btn-success text-white" asp-page="upsertStudent">
+        <i class="bi bi-pencil-square"></i>&nbsp;Create new student
     </a>
 </div>
 <hr />
 @if (Model.Students.Any())
 {
-    <div class="border shadow table-responsive" style="padding:15px;">
+    <div class="border shadow table-responsive p-5">
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
@@ -51,8 +51,10 @@
                             @(item.Record == null ? "No WhatApp # assigned." : item.Record.Dob.Value.ToShortDateString())
                         </td>
                         <td>
-                            <a class="btn btn-success text-white mb-1" style="width:80px;" asp-page="upsertStudent" asp-route-id="@item.Id">Edit</a>
-                            <a class="btn btn-danger text-white mb-1" style="width:80px;" asp-page="deleteStudent" asp-route-id="@item.Id">Delete</a>
+                            <a class="btn btn-success text-white mb-1" style="width:80px;" asp-page="upsertStudent" asp-route-id="@item.Id">
+                                <i class="bi bi-pencil"></i>&nbsp;</a>
+                            <a class="btn btn-danger text-white mb-1" style="width:80px;" asp-page="deleteStudent" asp-route-id="@item.Id">
+                                <i class="bi bi-trash"></i>&nbsp;</a>
                         </td>
                     </tr>
                 }

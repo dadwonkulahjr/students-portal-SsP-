@@ -394,3 +394,4 @@ C:\Users\Dad S. Wonkulah Jr\source\repos\SsP\SsPWeb\obj\Debug\net5.0\SsPWeb.pdb
 C:\Users\Dad S. Wonkulah Jr\source\repos\SsP\SsPWeb\obj\Debug\net5.0\SsPWeb.genruntimeconfig.cache
 C:\Users\Dad S. Wonkulah Jr\source\repos\SsP\SsPWeb\obj\Debug\net5.0\Razor\Pages\Students\List.cshtml.g.cs
 C:\Users\Dad S. Wonkulah Jr\source\repos\SsP\SsPWeb\obj\Debug\net5.0\Razor\Pages\Students\UpsertStudent.cshtml.g.cs
+C:\Users\Dad S. Wonkulah Jr\source\repos\SsP\SsPWeb\obj\Debug\net5.0\Razor\Pages\Shared\_Notifications.cshtml.g.cs
