@@ -7,7 +7,9 @@ namespace SsPWeb.Data
     public class ApplicationDbContext : IdentityDbContext
     {
         public DbSet<Student> Students { get; set; }
-        public DbSet<Record> Records { get; set; }
+        public DbSet<StudentDetails> StudentDetails { get; set; }
+
+        public DbSet<Gender> Genders { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
