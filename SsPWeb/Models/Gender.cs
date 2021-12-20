@@ -6,7 +6,7 @@ namespace SsPWeb.Models
     public class Gender
     {
         public int Id { get; set; }
-        [Required, StringLength(50)]
+        [StringLength(50), Display(Name = "Gender")]
         public string Name { get; set; }
         [StringLength(255)]
         public string Description { get; set; }

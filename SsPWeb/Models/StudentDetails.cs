@@ -18,7 +18,7 @@ namespace SsPWeb.Models
         public string WhatAppNumber { get; set; }
         [Column(TypeName ="date"), Required]
         public DateTime? Dob { get; set; }
-        [Required]
+        [Required, Display(Name ="StudentId")]
         public int StudentIdNumber { get; set; }
 
         public virtual Student Student { get; set; }

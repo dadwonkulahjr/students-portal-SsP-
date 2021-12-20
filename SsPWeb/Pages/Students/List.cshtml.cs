@@ -21,6 +21,7 @@ namespace SsPWeb.Pages.Students
         {
             Students = await _context.Students
                            .Include(x => x.StudentDetails)
+                           .Include(x => x.Gender)
                            .ToListAsync();
                            
 

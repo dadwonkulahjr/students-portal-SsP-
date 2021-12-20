@@ -10,14 +10,14 @@ namespace SsPWeb.Models
         public string FirstName { get; set; }
         [Display(Name ="Middle name")]
         public char? MiddleName { get; set; }
-        [StringLength(50), Display(Name ="Last name")]
+        [StringLength(50), Display(Name ="Last name"), Required]
         public string LastName { get; set; }
         [EmailAddress, Required]
         public string Email { get; set; }
 
 
         //Foreign Key
-        [ForeignKey(nameof(Gender))]
+        [ForeignKey(nameof(Gender)), Required(ErrorMessage ="Gender field is required.")]
         public int GenderId { get; set; }
 
         //Navigation Properties

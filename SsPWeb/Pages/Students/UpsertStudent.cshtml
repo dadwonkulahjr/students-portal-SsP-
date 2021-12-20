@@ -29,10 +29,10 @@ else
     {
         <input hidden="hidden" asp-for="StudentViewModel.Student.Id" />
     }
-    @*@if (Model.StudentViewModel.Student.Record.RecordId != 0)
-        {
-            <input hidden="hidden"  asp-for="StudentViewModel.Student.Record.RecordId" />
-        }*@
+    @*@if (Model.StudentViewModel.Student.GenderId != 0)
+    {
+        <input hidden="hidden" asp-for="StudentViewModel.Student.GenderId " />
+    }*@
     <div class="border shadow p-5">
         <div class="row">
             <div class="col-3">
@@ -41,6 +41,43 @@ else
             <div class="col-9 mb-1">
                 <input asp-for="StudentViewModel.Student.FirstName" class="form-control" placeholder="First name..." />
                 <span asp-validation-for="StudentViewModel.Student.FirstName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label asp-for="StudentViewModel.Student.MiddleName" class="col-form-label"></label>
+            </div>
+            <div class="col-9 mb-1">
+                <input asp-for="StudentViewModel.Student.MiddleName" class="form-control" placeholder="Middle name..." />
+                <span asp-validation-for="StudentViewModel.Student.MiddleName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label asp-for="StudentViewModel.Student.LastName" class="col-form-label"></label>
+            </div>
+            <div class="col-9 mb-1">
+                <input asp-for="StudentViewModel.Student.LastName" class="form-control" placeholder="Last name..." />
+                <span asp-validation-for="StudentViewModel.Student.LastName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label asp-for="StudentViewModel.Student.Email" class="col-form-label"></label>
+            </div>
+            <div class="col-9 mb-1">
+                <input asp-for="StudentViewModel.Student.Email" class="form-control" placeholder="Email..." />
+                <span asp-validation-for="StudentViewModel.Student.Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label asp-for="StudentViewModel.Student.Gender.Name" class="col-form-label"></label>
+            </div>
+            <div class="col-9 mb-1">
+                @Html.DropDownListFor(x => x.StudentViewModel.Student.GenderId,
+               Model.StudentViewModel.Genders, "Select gender", new { @class = "form-control" })
+                <span asp-validation-for="StudentViewModel.Student.GenderId" class="text-danger"></span>
             </div>
         </div>
         <div class="row">
@@ -83,13 +120,24 @@ else
             </div>
         </div>
 
-        <div class="row justify-content-end">
+        <div class="row">
             <div class="col-3">
                 <label asp-for="StudentViewModel.Student.StudentDetails.WhatAppNumber" class="col-form-label"></label>
             </div>
             <div class="col-9 mb-1">
                 <input asp-for="StudentViewModel.Student.StudentDetails.WhatAppNumber" class="form-control" placeholder="WhatApp Contact..." />
                 <span asp-validation-for="StudentViewModel.Student.StudentDetails.WhatAppNumber" class="text-danger"></span>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                <label asp-for="StudentViewModel.Student.StudentDetails.StudentIdNumber" class="col-form-label"></label>
+            </div>
+            <div class="col-9 mb-1">
+                <input asp-for="StudentViewModel.Student.StudentDetails.StudentIdNumber" class="form-control" placeholder="Student Id Number..." />
+                <span asp-validation-for="StudentViewModel.Student.StudentDetails.StudentIdNumber" class="text-danger"></span>
 
             </div>
         </div>
